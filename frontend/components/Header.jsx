@@ -10,7 +10,7 @@ const Header = () => {
         alignItems="center"
         p={1}  
        >
-      <Image w='35%' src='/etherun.jpg' />
+      <Image w='35%' src='./etherun.jpg' />
       <UserProfile/>
       <ConnectButton showBalance={false} label="Connect" accountStatus={{smallScreen: 'avatar', largeScreen: 'full',}}/>
     </Flex>
