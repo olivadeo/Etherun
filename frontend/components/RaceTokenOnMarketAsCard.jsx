@@ -1,9 +1,8 @@
 
 'use client'
-import { contractRace, abiRace, contractTicketMarket, abiTicketMarket } from "@/constants";
-import { useAccount, useReadContract, useWaitForTransactionReceipt, useSendTransaction } from "wagmi"
-import { useEffect, useState } from "react";
-import { useToast, Card, CardHeader, Heading, CardBody, Text, Button} from "@chakra-ui/react";
+import { contractTicketMarket, abiTicketMarket } from "@/constants";
+import { useAccount, useReadContract } from "wagmi"
+import { Card, CardHeader, Heading, CardBody, Text} from "@chakra-ui/react";
 import BuyTicketOnMarketModal from "./BuyTicketOnMarketModal";
 import { formatEther } from "viem";
 
@@ -20,7 +19,7 @@ const RaceTokenOnMarketAsCard = ({ myToken, refetch }) => {
         args: [myToken.args.ticketId]
     });
 
-    console.log("seller:"+ticketSeller+" ticket Id "+myToken.args.ticketId);
+    //console.log("seller:"+ticketSeller+" ticket Id "+myToken.args.ticketId);
     return (
         <>
             {ticketSeller && (

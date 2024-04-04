@@ -28,7 +28,6 @@ const BuyTicketOnMarketModal = ({ refetch, ticketId, price, seller }) => {
   };
 
   function updateLoadingState(state) {
-    console.log('update_loading state ' + state)
     setLoadingState(state);
   }
 
@@ -45,7 +44,6 @@ const BuyTicketOnMarketModal = ({ refetch, ticketId, price, seller }) => {
         refetch()
       },
       onError: (error) => {
-        console.log({ error });
         updateLoadingState(false);
         toast({
           title: "ERROR !!",

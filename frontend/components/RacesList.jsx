@@ -1,10 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react';
-import { Table, TableContainer, Tr, Th, Td, Thead, Tbody, Tfoot, Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Input, HStack, useToast } from '@chakra-ui/react'
-import { useAccount, useReadContract, useWriteContract, useWaitForTransactionReceipt } from "wagmi";
+import { useAccount  } from "wagmi";
 import { contractRace, abiRace } from "@/constants";
-import { encodeFunctionData, parseEther } from 'viem';
-import { PublicActions } from 'viem';
 import { publicClient } from "@/app/utils/clients";
 import { parseAbiItem } from 'viem';
 import { targetEnv, startingBlock } from "@/app/RainbowKitAndChakraProvider";
@@ -23,8 +20,8 @@ const RacesList = ({ isSubscription }) => {
             fromBlock: (targetEnv == 'SEPOLIA' ? BigInt(startingBlock) : 0n),
             toBlock: 'latest'
         })
-        console.log(courseCreatedEvents);
-        console.log(courseCreatedEvents.map((race) => race.args.raceId));
+        //console.log(courseCreatedEvents);
+
         setRaceIds(courseCreatedEvents.map((race) => race.args.raceId));
     }
 

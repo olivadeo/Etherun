@@ -1,6 +1,6 @@
 'use client'
 import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Input, HStack, useToast } from '@chakra-ui/react'
-import { useAccount, useWriteContract, useWaitForTransactionReceipt,useSendTransaction ,} from "wagmi";
+import { useAccount, useWaitForTransactionReceipt,useSendTransaction ,} from "wagmi";
 import { contractRaceOrganizer, abiRaceOrganizer } from "@/constants";
 import { useState, useEffect } from 'react';
 import { encodeFunctionData, parseEther } from 'viem';
@@ -13,7 +13,6 @@ const RegisterOrganizer = () => {
     const [loadingState, setLoadingState] = useState(false)
 
     function registerOrganizer() {
-        console.log("pseudo : " + pseudo);
         
         let data = encodeFunctionData({
             abi: abiRaceOrganizer,

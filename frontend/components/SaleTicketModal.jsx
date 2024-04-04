@@ -1,9 +1,9 @@
 'use client'
 import { useState, useEffect } from "react";
 import { useAccount, useWriteContract, useWaitForTransactionReceipt } from "wagmi";
-import { contractTicketMarket, abiTicketMarket, contractRace, abiRace } from "@/constants";
+import { contractRace, abiRace } from "@/constants";
 import {
-  useToast, Center,Text,Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, Input, Stack, FormControl, FormLabel,
+  useToast, Center,Text,Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, Input, Stack
 } from "@chakra-ui/react";
 import { parseEther } from "viem";
 
@@ -41,7 +41,6 @@ const SaleTicketModal = ({ refetch, ticketId, raceId, tokenId, ownedByMarket }) 
   };
 
   function updateLoadingState(state) {
-    console.log('update_loading state ' + state)
     setLoadingState(state);
   }
 
@@ -71,13 +70,12 @@ const SaleTicketModal = ({ refetch, ticketId, raceId, tokenId, ownedByMarket }) 
 
 
   function saleTicket() {
-    console.log(tokenId)
     writeContract({
       address: contractRace,
       abi: abiRace,
       functionName: 'putTicketOnMarketForSale',
       account: address,
-     // args: [ticketId,raceId,tokenId,parseEther(price)]
+     //args: [ticketId,raceId,tokenId,parseEther(price)]
       args: [ticketId,tokenId,parseEther(price)]
     })
   }

@@ -15,18 +15,18 @@ contract MedicalCertificateNFT is ERC721, Ownable {
         
     event ContractAuthorized(address contrat);
 
-    function mintMedicalCertificateNFT(address _runner, string memory metadata) external returns (uint)  {
-        require(isContractAuthorized(msg.sender),"Not authorized");
+    function mintMedicalCertificateNFT(address _runner, string memory _metadata) external returns (uint)  {
+        require(isContractAuthorized(msg.sender),"Not authorized"); // contrat appelant autoriser a delivrer le NFT
 
         uint tokenId = uint(keccak256(abi.encodePacked(block.timestamp, _runner, nextToken)));
         _safeMint(_runner, tokenId);
-        _setTokenUri(tokenId,metadata);
+        _setTokenUri(tokenId,_metadata);
         nextToken++;
         return tokenId;
     }
 
-    function _setTokenUri(uint256 tokenId, string memory tokenUri) private {
-        tokenURIs[tokenId] = tokenUri;
+    function _setTokenUri(uint256 _tokenId, string memory _tokenUri) private {
+        tokenURIs[_tokenId] = _tokenUri;
     }
 
     function authorizeContract(address _contract) external onlyOwner{

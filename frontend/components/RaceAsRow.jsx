@@ -24,7 +24,6 @@ const RaceAsRow = ({ id, isSubscription }) => {
     });
 
     function updateLoadingState(state) {
-        console.log('update_loading state ' + state)
         setLoadingState(state);
     }
 
@@ -69,7 +68,6 @@ const RaceAsRow = ({ id, isSubscription }) => {
         
         const client = new NFTStorage({ token: NFTStorageKey });
         const nftRaceMetadata = await client.store(nftRace);
-        console.log(nftRaceMetadata)
         console.log(nftRaceMetadata.url)
 
         let data = encodeFunctionData({

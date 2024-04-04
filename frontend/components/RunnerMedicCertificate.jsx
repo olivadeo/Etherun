@@ -1,5 +1,5 @@
 'use client'
-import { Link, Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Input, VStack, useToast, Box, Alert, AlertIcon, AlertDescription, AlertTitle } from '@chakra-ui/react'
+import { Link, Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Input, VStack, useToast, Box} from '@chakra-ui/react'
 import { useWriteContract, useAccount, useWaitForTransactionReceipt } from "wagmi";
 import { contractRunners, abiRunners, NFTStorageKey } from "@/constants";
 import { useState, useEffect } from 'react';
@@ -16,6 +16,8 @@ const RunnerMedicCertificate = () => {
     const [loadingState, setLoadingState] = useState(false)
 
     const toast = useToast();
+    
+    const isErrorCertif = (selectedFile === '')
 
     const uploadCertificate = async () => {
 
@@ -32,7 +34,6 @@ const RunnerMedicCertificate = () => {
         const client = new NFTStorage({ token: NFTStorageKey });
         const fileMetadata = await client.storeBlob(selectedFile);
         setCertifIpfs ("ipfs://"+fileMetadata);
-        console.log("lien IPFS certif "+fileMetadata)
 
         const fileLogo = await fetch('./medic-proof.png'); 
         const image = await fileLogo.blob();
@@ -46,10 +47,8 @@ const RunnerMedicCertificate = () => {
                 ipfs: "ipfs://"+fileMetadata
               }
             };
-            console.log(nftMedic);
 
         const nftMedicMetadata = await client.store(nftMedic);
-        console.log(nftMedicMetadata)
         console.log(nftMedicMetadata.url)
      
         writeContract({
@@ -103,8 +102,6 @@ const RunnerMedicCertificate = () => {
         }
     }, [isConfirmed])
 
-
-    const isErrorCertif = (selectedFile === '')
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];

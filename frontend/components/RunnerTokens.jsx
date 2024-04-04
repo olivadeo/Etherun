@@ -1,10 +1,8 @@
 'use client'
 import { useState, useEffect } from 'react';
-import { Stack,Table, TableContainer, Tr, Th, Td, Thead, Tbody, Tfoot, Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Input, HStack, useToast } from '@chakra-ui/react'
-import { useAccount, useReadContract, useWriteContract, useWaitForTransactionReceipt } from "wagmi";
-import { contractRace, abiRace, contractTicketMarket } from "@/constants";
-import { encodeFunctionData, parseEther } from 'viem';
-import { PublicActions } from 'viem';
+import { Stack,} from '@chakra-ui/react'
+import { useAccount} from "wagmi";
+import { contractRace  } from "@/constants";
 import { publicClient } from "@/app/utils/clients";
 import { parseAbiItem } from 'viem';
 import { targetEnv, startingBlock } from "@/app/RainbowKitAndChakraProvider";
@@ -22,7 +20,7 @@ const RunnerTokens = () => {
             fromBlock: (targetEnv == 'SEPOLIA' ? BigInt(startingBlock) : 0n),
             toBlock: 'latest'
         })
-        console.log(RaceRegistrationEvents);
+        //console.log(RaceRegistrationEvents);
         setTokens(RaceRegistrationEvents);
 
         /*

@@ -20,8 +20,6 @@ const UserProfile = () => {
         account: address
     })
   
-    console.log(ownerAddress + ' ' + address)
-
     const { data: organizer} = useReadContract({
         address: contractRaceOrganizer,
         abi: abiRaceOrganizer,
@@ -29,7 +27,7 @@ const UserProfile = () => {
         args: [address],
         account: address
     })
-    console.log(organizer)
+    //console.log(organizer)
 
     const { data: runner } = useReadContract({
         address: contractRunners,
@@ -38,7 +36,7 @@ const UserProfile = () => {
         args: [address],
         account: address
     })
-    console.log(runner)
+    //console.log(runner)
 
     if (ownerAddress == address) profile = 'OWNER'
     else if (organizer && organizer.name) profile = 'ORGANIZER'
@@ -48,7 +46,7 @@ const UserProfile = () => {
         setConnectedProfile(profile)
     }, [profile])
 
-    console.log(profile)
+   // console.log(profile)
 
     return (
         <>

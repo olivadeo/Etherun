@@ -41,7 +41,6 @@ contract RaceOrganizer is Ownable {
         return organizers[_organizer];
     }
     
-    //GIMME $$$$
     function withdraw() external onlyOwner {
         
         uint256 balance = address(this).balance;

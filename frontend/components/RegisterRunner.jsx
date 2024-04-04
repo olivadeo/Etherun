@@ -1,5 +1,5 @@
 'use client'
-import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Input, VStack, useToast, Box, Alert, AlertIcon, AlertDescription, AlertTitle } from '@chakra-ui/react'
+import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Input, VStack, useToast } from '@chakra-ui/react'
 import { useAccount, useWaitForTransactionReceipt, useSendTransaction } from "wagmi";
 import { contractRunners, abiRunners } from "@/constants";
 import { useState, useEffect } from 'react';
@@ -31,9 +31,6 @@ const RegisterRunner = () => {
             return;
         }
 
-        console.log("firstname : " + firstName);
-        console.log("lastname : " + lastName);
-        console.log("age : " + age);
      
         let data = encodeFunctionData({
             abi: abiRunners,

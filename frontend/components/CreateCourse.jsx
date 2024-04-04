@@ -1,9 +1,9 @@
 'use client'
-import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Input, VStack, useToast, Box, Alert, AlertIcon, AlertDescription, AlertTitle } from '@chakra-ui/react'
-import { useAccount, useWaitForTransactionReceipt, useSendTransaction, useWriteContract } from "wagmi";
+import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Input, VStack, useToast } from '@chakra-ui/react'
+import { useAccount, useWaitForTransactionReceipt, useWriteContract } from "wagmi";
 import { contractRace, abiRace } from "@/constants";
 import { useState, useEffect } from 'react';
-import { encodeFunctionData, parseEther } from 'viem';
+import {  parseEther } from 'viem';
 import { useEtherunContext } from "@/app/context/EtherunContext";
 
 
@@ -32,13 +32,6 @@ const CreateCourse = () => {
             });
             return;
         }
-        console.log("course date (timestamp) "+courseDate+ ' '+Date.parse(courseDate))
-        console.log("course Name : " + courseName);
-        console.log("course Price : " + coursePrice);
-        console.log("course Max tickets : " + courseMaxTickets);
-    
-        //const tx = await race.createRace("Marathon Lille",15, parseEther('0.01') , "0x70997970C51812dc3A010C7d01b50e0d17dc79C8", '', Math.floor(Date.now() / 1000) );
-
         
         writeContract({
             address: contractRace,
@@ -62,7 +55,6 @@ const CreateCourse = () => {
                 setLoadingState(true);
             },
             onError: (error) => {
-                console.log({ error });
                 setLoadingState(false);
                 toast({
                     title: "error.cause.reason",

@@ -3,10 +3,9 @@
 import { contractRace, abiRace, NFTStorageKey } from "@/constants";
 import { useAccount, useReadContract, useWaitForTransactionReceipt, useSendTransaction } from "wagmi"
 import { useEffect, useState } from "react";
-import { useToast, Tr, Td, Button, Card, Image, CardBody, Stack, Heading, CardFooter, Text, SimpleGrid, Box } from "@chakra-ui/react";
+import { useToast, Button, Card, Image, CardBody, Stack, Heading, Text, SimpleGrid, Box } from "@chakra-ui/react";
 import { encodeFunctionData, formatEther } from "viem";
 import { NFTStorage } from 'nft.storage';
-
 
 
 const RaceAsCard = ({ id }) => {
@@ -25,7 +24,6 @@ const RaceAsCard = ({ id }) => {
     });
 
     function updateLoadingState(state) {
-        console.log('update_loading state ' + state)
         setLoadingState(state);
     }
 
@@ -66,11 +64,9 @@ const RaceAsCard = ({ id }) => {
                 raceId: id.toString(),
             }
         };
-        console.log(nftRace);
 
         const client = new NFTStorage({ token: NFTStorageKey });
         const nftRaceMetadata = await client.store(nftRace);
-        console.log(nftRaceMetadata)
         console.log(nftRaceMetadata.url)
 
         let data = encodeFunctionData({
