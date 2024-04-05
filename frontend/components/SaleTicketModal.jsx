@@ -59,7 +59,7 @@ const SaleTicketModal = ({ refetch, ticketId, raceId, tokenId, ownedByMarket }) 
         console.log({ error });
         updateLoadingState(false);
         toast({
-          title: error.cause.reason,
+          title: "Echec de mise en vente du ticket",
           status: "error",
           duration: 5000,
           isClosable: true,

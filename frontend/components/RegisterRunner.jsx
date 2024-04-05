@@ -61,7 +61,7 @@ const RegisterRunner = () => {
                 console.log({ error });
                 setLoadingState(false);
                 toast({
-                    title: "error.cause.reason",
+                    title: "Echec de l'inscription",
                     status: "error",
                     duration: 5000,
                     isClosable: true,

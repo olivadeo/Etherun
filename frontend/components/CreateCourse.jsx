@@ -57,7 +57,7 @@ const CreateCourse = () => {
             onError: (error) => {
                 setLoadingState(false);
                 toast({
-                    title: "error.cause.reason",
+                    title: "Echec de la création de course",
                     status: "error",
                     duration: 5000,
                     isClosable: true,

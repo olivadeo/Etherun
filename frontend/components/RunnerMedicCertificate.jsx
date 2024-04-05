@@ -16,7 +16,7 @@ const RunnerMedicCertificate = () => {
     const [loadingState, setLoadingState] = useState(false)
 
     const toast = useToast();
-    
+
     const isErrorCertif = (selectedFile === '')
 
     const uploadCertificate = async () => {
@@ -76,7 +76,7 @@ const RunnerMedicCertificate = () => {
                 console.log({ error });
                 setLoadingState(false);
                 toast({
-                    title: "error.cause.reason",
+                    title: "Echec de l'enregistrement",
                     status: "error",
                     duration: 5000,
                     isClosable: true,

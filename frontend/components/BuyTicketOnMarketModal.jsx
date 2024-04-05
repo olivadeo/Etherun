@@ -46,7 +46,7 @@ const BuyTicketOnMarketModal = ({ refetch, ticketId, price, seller }) => {
       onError: (error) => {
         updateLoadingState(false);
         toast({
-          title: "ERROR !!",
+          title: "Echec de l'achat du ticket",
           status: "error",
           duration: 5000,
           isClosable: true,

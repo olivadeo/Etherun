@@ -37,7 +37,7 @@ const ValidateAccounts = () => {
                 console.log({ error });
                 setLoadingState(false);
                 toast({
-                    title: error.cause.reason,
+                    title: "Echec de la validation",
                     status: "error",
                     duration: 5000,
                     isClosable: true,
