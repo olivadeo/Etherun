@@ -18,11 +18,10 @@ const RaceTokenOnMarketAsCard = ({ myToken, refetch }) => {
         account: address,
         args: [myToken.args.ticketId]
     });
-
-    //console.log("seller:"+ticketSeller+" ticket Id "+myToken.args.ticketId);
+    console.log("seller:"+ticketSeller+" ticket Id "+myToken.args.ticketId);
     return (
         <>
-            {ticketSeller && (
+            {ticketSeller && ticketSeller != 0 && (
                 <Card key={myToken.args.ticketId} size='xs'>
                     <CardHeader p={3}>
                         <Heading size='xs'> Course ID : {(myToken.args.raceId).toString()} Ticket ID : {(myToken.args.ticketId).toString()} </Heading>
