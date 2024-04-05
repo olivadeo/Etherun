@@ -2475,11 +2475,11 @@ let addressRace= ''
 let addressTicketMarket= ''
 
 if(env && env == 'SEPOLIA'){
-  addressMedicNFT = "0xA22102F8EB73201a55195ec418193B52f72FD3ce"
-  addressRaceOrganizer = "0xf1387180020119B9945626C967c37D84448BAF6d"
-  addressRunners = "0x396c8B8f81211c1F2dd3d512C66227Dd6a36Ea10"
-  addressRace = "0x1dec458B895DcB27Aef298a402927d47436FDFc5"
-  addressTicketMarket = "0x94792b455F976Ba7b3119e474E4e6bc14Db72628"
+  addressMedicNFT = "0x1c2ce656BA502eE571896B18Cf5E8e5B7352d61C"
+  addressRaceOrganizer = "0x27d50066a5629fCD28c737Fe5289D282b309902b"
+  addressRunners = "0x98AA12bC3639Bb2a95fd32cf4A7a00D24fBf2c35"
+  addressRace = "0xc693e796447fec514a5Fb184E14c321cB5dc5625"
+  addressTicketMarket = "0xD8e68fa8c060FCf6c2d0D96ac68F83361eF23Fe0"
 }
 else {      
   addressMedicNFT = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
