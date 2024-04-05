@@ -1,6 +1,6 @@
 import { useAccount, useReadContract } from "wagmi";
 import { useEffect } from "react";
-import { Badge, HStack,Text,Center } from "@chakra-ui/react";
+import { Badge, HStack,Text,Center, Kbd } from "@chakra-ui/react";
 import { contractRace, contractRaceOrganizer, contractRunners, abiRace, abiRunners, abiRaceOrganizer } from "@/constants";
 import { useEtherunContext } from "@/app/context/EtherunContext";
 import { BsFileMedical } from "react-icons/bs";
@@ -52,7 +52,8 @@ const UserProfile = () => {
         <>
             {connectedProfile != 'UNKNOWN' && isConnected ?
                 <HStack>
-                    <Badge colorScheme='green'>{connectedProfile}</Badge>
+                    <Badge colorScheme='green'>{connectedProfile}</Badge> 
+                    <Kbd >{address}</Kbd>
                     {connectedProfile == 'RUNNER' ? 
                     
                         <NextLink href="/runnerMedicCertificate" passHref >
