@@ -11,7 +11,7 @@ import "./RaceOrganizer.sol";
 import "./Runners.sol";
 import "./TicketMarket.sol";
 
-contract Race is Ownable , ERC721, IERC721Receiver {
+contract Race is Ownable , ERC721 {
 
     struct RaceInfo {
         string name;
@@ -147,17 +147,6 @@ contract Race is Ownable , ERC721, IERC721Receiver {
         emit TicketPutOnMarketForSale(_ticketId, _tokenId, msg.sender, _price);
     }
 
-    
-    function onERC721Received(address _from, address _to, uint256 _tokenId, bytes memory _data) public override returns (bytes4) {
-        uint[3] memory ticketData; 
-        ticketData = getTicketInfo(ownerOfTokens[_tokenId],_tokenId);
-
-        //on recoit un ticket, suite a un achat : mettre à jour le owner
-        updateTicketOwner(_to, ownerOfTokens[_tokenId],  ticketData[1] );
-
-        return this.onERC721Received.selector;
-    }
-
     function getTicketInfo(address _owner, uint256 _tokenId) public view returns (uint[3] memory ){
         require(isContractAuthorized(msg.sender),"Caller not Authorized");
        
@@ -178,7 +167,8 @@ contract Race is Ownable , ERC721, IERC721Receiver {
         return ticketData;
     }
 
- function updateTicketOwner(address _newOwner, address _initialOwner, uint256 _ticketId) private {
+ function updateTicketOwner(address _newOwner, address _initialOwner, uint256 _ticketId) external {
+        require(isContractAuthorized(msg.sender),"Caller not Authorized");
 
         for (uint256 i = 0; i <  runnerTickets[_initialOwner].length; i++) {
             if ( runnerTickets[_initialOwner][i].ticketId == _ticketId) {
@@ -201,12 +191,6 @@ contract Race is Ownable , ERC721, IERC721Receiver {
         }
         emit TicketOwnerChanged(_ticketId, _initialOwner,_newOwner);
     }
-
-    /*
-    function isOwnerOfRaceToken(uint256 _tokenId) external view returns (bool) {
-        return (ownerOf(_tokenId) == msg.sender );
-    }
-    */
 
     function getTicketsByRunner(address _runner) external view returns ( Ticket[] memory )  {
         require (msg.sender == _runner || msg.sender == owner() , "You are not authorized");
@@ -251,48 +235,4 @@ contract Race is Ownable , ERC721, IERC721Receiver {
     }
 
 
-
-
-
-
-
-
-    /* //TODO : IMPLEMENT LATER
-    function getTokenUri(uint256 tokenId) external view returns (string memory) {
-        require (msg.sender == owner() || ownerOf(tokenId) == msg.sender);
-        return tokenURIs[tokenId];
-    }*/
-     /*
-    function getRacesByOrganizer(address _organizer) external view returns ( RaceInfo[] memory ) {
-        require (msg.sender == _organizer || msg.sender == owner() , "You are not authorized");
-        return racesOrganizer[_organizer];
-    }
-    
-
-   
-    /*
-    function activateRace(uint _raceId) external onlyTheOrganizerOrOwner(_raceId) {
-        require(races[_raceId].isActive == false, "The race is already activated"); 
-        
-        races[_raceId].isActive = true;
-        
-        emit RaceActivated(_raceId);
-    }
-
-    function deactivateRace(uint _raceId) external onlyTheOrganizerOrOwner(_raceId) {
-        require(races[_raceId].isActive == true, "The race is already deactivated");
-        
-        races[_raceId].isActive = false;
-        
-        emit RaceDeactivated(_raceId);
-    }
-    
-    
-    modifier onlyTheOrganizerOrOwner(uint _raceId) {
-        require(    msg.sender == owner()
-                 || raceOrganizerContract.isOrganizerRegistred(msg.sender)
-                 && races[_raceId].organizer == msg.sender , "You are not authorized to perform this action");
-        _;
-    }
-    */
 }

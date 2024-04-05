@@ -2,10 +2,6 @@ const { parseEther } = require("ethers");
 const hre = require("hardhat");
 const { task } = require("hardhat/config");
 
-//const JAN_1ST_2030 = 1893456000;
-//const ONE_GWEI = 1_000_000_000n;
-
-
 
 task("verify-contract", "Vérify sur Etherscan")
   .addParam("contract", "address")
@@ -16,8 +12,6 @@ task("verify-contract", "Vérify sur Etherscan")
       constructorArguments: args.split(",") || [],
     });
   });
-
-
 
 async function main() {
 

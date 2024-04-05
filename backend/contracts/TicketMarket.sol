@@ -60,7 +60,8 @@ contract TicketMarket is Ownable,  IERC721Receiver  {
         IERC721(raceContracAddress).safeTransferFrom(address(this), msg.sender, ticket.tokenId);
         
         require(IERC721(raceContracAddress).ownerOf(ticketsForSale[_ticketId].tokenId) == msg.sender, "NFT Transfer failed");
-        
+        Race(raceContracAddress).updateTicketOwner(msg.sender, ticket.seller, _ticketId);
+
         address payable seller = payable(ticket.seller);
         payable(seller).transfer(msg.value);
 
