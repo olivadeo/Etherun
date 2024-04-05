@@ -35,12 +35,35 @@ Déployé sur sépolia
 
 # Deployment Backend :
 
+- create .env file with following values :
+
+PK = *PRIVATE_KEY_OF_THE_ACCOUTN_YOU_DEPLOY_WITH*
+
+ETHERSCAN_API = *YOUR_ETHERSCAN_KEY*
+
+RPC_URL = *YOUR_INFURA_RPC_URL* If using Infura
+
+ALCHEMY_URL = *YOUR_ALCHEMY_RPC_URL* If using Infura
+
 #yarn install 
 
 Le script de deploiement se trouve ici :
 
 #backend/ignition/modules/RunningNFT.js
- 
-pour Déployer : 
+
+Pour lancer les tests : 
+
+#yarn harhat test
+
+Pour le coverage :
+
+#yarn harhat coverage
+
+Pour Déployer : 
 
 #yarn hardhat run ./ignition/modules/RunningNFT.js --network <localhost|sepolia>
+
+
+
+
+
