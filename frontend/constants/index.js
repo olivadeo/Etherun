@@ -2475,11 +2475,11 @@ let addressRace= ''
 let addressTicketMarket= ''
 
 if(env && env == 'SEPOLIA'){
-  addressMedicNFT = "0x1c2ce656BA502eE571896B18Cf5E8e5B7352d61C"
-  addressRaceOrganizer = "0x27d50066a5629fCD28c737Fe5289D282b309902b"
-  addressRunners = "0x98AA12bC3639Bb2a95fd32cf4A7a00D24fBf2c35"
-  addressRace = "0xc693e796447fec514a5Fb184E14c321cB5dc5625"
-  addressTicketMarket = "0xD8e68fa8c060FCf6c2d0D96ac68F83361eF23Fe0"
+  addressMedicNFT = "0x185C98cd0e9742e596d40b5328236d77543470a7"
+  addressRaceOrganizer = "0x69B0d731164b1d87E9c1849bf476036c19c04437"
+  addressRunners = "0xc58ddbdc0d767F2452118fb2b11cC837f18E41b6"
+  addressRace = "0x3D4E7e7356A14384018883f7677751c35d9d4b3D"
+  addressTicketMarket = "0xEcE46A5846ae3894a8A89EB9e3922e0c216310aD"
 }
 else {      
   addressMedicNFT = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
@@ -2497,4 +2497,5 @@ export const contractRace = addressRace
 export const contractTicketMarket = addressTicketMarket
 
 export const medicProofIPFS ="ipfs://bafkreiekka5c235ao76ekmvcnz4a2mpbe3bliayekfa3fk7jojvr5xrfru"
-export const NFTStorageKey ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweENlNEE4ODBGQUJCMzY4OTZhZUQxZGQzNDVjMEY3ZUJDOWEzQkQwOTYiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTcxMTAwOTA4Mzk2NywibmFtZSI6IkFMWVJBIn0.yi67qFZGgMZV3EzEROSbZa4kx6fbgoWhE0b55pBhH9Q"
+export const NFTStorageKey = process.env.NEXT_PUBLIC_NFTSTORAGEKEY
+
