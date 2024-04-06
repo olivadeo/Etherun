@@ -42,7 +42,7 @@ const RaceAsCard = ({ id }) => {
                 updateLoadingState(false);
                 console.log({ error });
                 toast({
-                    title: error.cause.reason,
+                    title: "Echec de l'inscription",
                     status: "error",
                     duration: 5000,
                     isClosable: true,
